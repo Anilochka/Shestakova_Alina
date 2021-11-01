@@ -3,30 +3,32 @@
 <head>
     <meta charset="utf-8">
     <title>My Personal Card</title>
-    <link href="styles/style.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="styles/theme.css" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- endinject -->
 </head>
 <body>
     <div class="card">
         <section class="card_personal-info">
             <section class="card_personal-info_main">
                 <section class="card_personal-info_main_employee-avatar">
-                    <img src="images/avatar.png"
+                    <img src="../images/avatar.png"
                          alt="employee avatar"/>
                 </section>
                 <h3 class="card_personal-info_main_employee-name">Alina Shestakova</h3>
                 <h4 class="card_personal-info_main_employee-position">Developer</h4>
                 <section class="card_personal-info_main_employee-social-media">
                     <a class="card_personal-info_main_employee-social-media_ok-ru" href="https://ok.ru/profile/594971371571">
-                        <img src="images/ok.jpg"
+                        <img src="../images/ok.jpg"
                              alt="ok.ru logo"/>
                     </a>
                     <a class="card_personal-info_main_employee-social-media_telegram" href="https://t.me/anilochka">
-                        <img src="images/telegram.png"
+                        <img src="../images/telegram.png"
                              alt="telegram logo"/>
                     </a>
                     <a class="card_personal-info_main_employee-social-media_github" href="https://github.com/Anilochka">
-                        <img src="images/github.png"
+                        <img src="../images/github.png"
                              alt="github logo"/>
                     </a>
                 </section>
@@ -75,5 +77,8 @@
             </section>
         </section>
     </div>
+    <!-- inject:js -->
+    <script src="./app.js"></script>
+    <!-- endinject -->
 </body>
 </html>
