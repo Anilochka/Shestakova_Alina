@@ -37,13 +37,17 @@ body {
     text-align: center;
 }
 
-.card_personal-info_main img {
-    border-radius: 50%;
+.card_personal-info_main {
+    img {
+        border-radius: 50%;
+    }
 }
 
-.card_personal-info_main_employee-avatar img {
-    height: 180px;
-    box-shadow: 12px 12px #87867f;
+.card_personal-info_main_employee-avatar {
+    img {
+        height: 180px;
+        box-shadow: 12px 12px #87867f;
+    }
 }
 
 .card_personal-info_main_employee-name {
@@ -64,8 +68,10 @@ body {
     margin-top: 16px;
 }
 
-.card_personal-info_main_employee-social-media img {
-    height: 24px;
+.card_personal-info_main_employee-social-media {
+    img {
+        height: 24px;
+    }
 }
 
 button {
