@@ -74,16 +74,18 @@ body {
     }
 }
 
-button {
-    margin-top: 55px;
-    margin-bottom: 66px;
-    background-color: #444444;
-    border: 3px solid #FFFFFF;
-    color: #ffffff;
-    height: 46px;
-    width: 168px;
-    border-radius: 40px;
-    font-size: 17px;
+.card_personal-info {
+    button {
+        margin-top: 55px;
+        margin-bottom: 66px;
+        background-color: #444444;
+        border: 3px solid #FFFFFF;
+        color: #ffffff;
+        height: 46px;
+        width: 168px;
+        border-radius: 40px;
+        font-size: 17px;
+    }
 }
 
 .card_personal-info-copyright {
@@ -91,6 +93,11 @@ button {
 }
 
 .card_additional-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_additional-info_basic {
     flex-grow: 5;
     display: flex;
     flex-direction: column;
@@ -99,9 +106,6 @@ button {
     align-items: center;
     justify-content: center;
     background-color: #222222;
-}
-
-.card_additional-info_basic {
     text-align: center;
 }
 
@@ -116,8 +120,12 @@ button {
     margin: 0;
 }
 
-.card_additional-info_professional-skills,
 .card_additional-info_contact-info {
     display: none;
 }
 
+.card_additional-info__button-to-skills {
+    margin-left: 300px;
+    position: absolute;
+    top: 541px;
+}

@@ -304,6 +304,81 @@ template {
   display: none;
 }
 
+.card_additional-info_coding-skills {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.card_additional-info_coding-skills button {
+  background-color: #444444;
+  border: 1px solid #FFFFFF;
+  color: #ffffff;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  font-size: 17px;
+}
+.card_additional-info_coding-skills progress {
+  -webkit-appearance: none;
+  width: 450px;
+}
+.card_additional-info_coding-skills h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.card_additional-info_coding-skills progress::-webkit-progress-bar {
+  background-color: #222222;
+  border: 2px solid royalblue;
+  height: 14px;
+  border-radius: 9px;
+}
+.card_additional-info_coding-skills progress::-webkit-progress-value {
+  background-color: royalblue;
+  border: 1px solid #222222;
+  height: 10px;
+  border-radius: 9px;
+}
+.card_additional-info__button-to-main__img {
+  background-color: #222222;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+.card_additional-info_coding-skills_add-panel {
+  display: flex;
+  flex-direction: row;
+  background-color: #222222;
+  border-radius: 9px;
+  border: 1px solid #222222;
+}
+.card_additional-info_coding-skills_add-panel_input-skill-name,
+.card_additional-info_coding-skills_add-panel_input-skill-value,
+.card_additional-info_coding-skills_add-panel_add-button {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: #222222;
+  border-radius: 9px;
+  border: 1px solid #FFFFFF;
+  font-size: 15px;
+  color: #ffffff;
+  width: 125px;
+}
+.card_additional-info_coding-skills_add-panel_input-skill-name,
+.card_additional-info_coding-skills_add-panel_input-skill-value {
+  width: 219px;
+  margin-right: 3px;
+}
+.card_additional-info_coding-skills_add-panel_add-button {
+  margin-left: 3px;
+}
+.card_additional-info__button-to-main {
+  margin-left: 300px;
+  position: absolute;
+  top: 541px;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -667,7 +742,7 @@ body {
 .card_personal-info_main_employee-social-media img {
   height: 24px;
 }
-button {
+.card_personal-info button {
   margin-top: 55px;
   margin-bottom: 66px;
   background-color: #444444;
@@ -682,6 +757,10 @@ button {
   font-size: 14px;
 }
 .card_additional-info {
+  display: flex;
+  flex-direction: column;
+}
+.card_additional-info_basic {
   flex-grow: 5;
   display: flex;
   flex-direction: column;
@@ -690,8 +769,6 @@ button {
   align-items: center;
   justify-content: center;
   background-color: #222222;
-}
-.card_additional-info_basic {
   text-align: center;
 }
 .card_additional-info_basic_employee-name {
@@ -703,8 +780,12 @@ button {
   font-weight: normal;
   margin: 0;
 }
-.card_additional-info_professional-skills,
 .card_additional-info_contact-info {
   display: none;
+}
+.card_additional-info__button-to-skills {
+  margin-left: 300px;
+  position: absolute;
+  top: 541px;
 }
 
