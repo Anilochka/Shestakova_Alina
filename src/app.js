@@ -8,18 +8,43 @@ class Skill {
     }
 }
 
-const skillsContainer = document.querySelector('.card_additional-info_coding-skills_skills-info');
-let skillsList = [
-    new Skill('Java', 30),
-    new Skill('C', 20),
-    new Skill('Python', 10),
-    new Skill('JavaScript', 5),
-];
+class SkillView {
+    redrawSkillsContainer() {
+        skillsContainer.innerHTML = '<h2>Coding Skills</h2>';
+        for (let i = 0; i < skillsList.length; i++) {
+            this.redrawSkillsContainerAfterAdd(skillsList[i]);
+        }
+    }
+
+    redrawSkillsContainerAfterDelete(skill) {
+        skillsContainer.querySelector('.card_additional-info_coding-skills_programming-language-' + skill.name).remove();
+    }
+
+    redrawSkillsContainerAfterAdd(skill) {
+        const element = document.createElement("section");
+        element.classList.add("card_additional-info_coding-skills_programming-language-" + skill.name);
+        element.innerHTML =
+            `<h3>${skill.name}</h3>
+                <progress class="card_additional-info_coding-skills_programming-language-${skill.name}_progress" 
+                    max="100" value=${skill.ratio}>
+                </progress>
+                <button class="card_additional-info_coding-skills_programming-language-${skill.name}_minus-button">-</button>`;
+        skillsContainer.appendChild(element);
+        let deleteButton = document.querySelector('.card_additional-info_coding-skills_programming-language-'
+            + skill.name + '_minus-button');
+        deleteButton.addEventListener("click", () => deleteSkill(skill));
+    }
+
+    redrawSkillsContainerAfterValueChange(skill) {
+        skillsContainer.querySelector('.card_additional-info_coding-skills_programming-language-' + skill.name + '_progress')
+            .setAttribute("value", skill.ratio);
+    }
+}
 
 function init () {
     const addButton = document.querySelector('.card_additional-info_coding-skills_add-panel_add-button');
     addButton.addEventListener("click", () => addSkill());
-    redrawSkillsContainer();
+    skillView.redrawSkillsContainer();
 }
 
 function addSkill() {
@@ -37,17 +62,18 @@ function addSkill() {
     for (let i = 0; i < skillsList.length; i++) {
         if (skillsList[i].name === nameInput.value) {
             if (skillsList[i].ratio === valueInput.value) {
-                alert("This skill already exist!");
+                alert("This skill already exists!");
                 shouldAdd = false;
             }
             skillsList[i].setRatio(valueInput.value);
             shouldAdd = false;
-            redrawSkillsContainer();
+            skillView.redrawSkillsContainerAfterValueChange(skillsList[i])
         }
     }
     if (shouldAdd) {
-        skillsList.push(new Skill(nameInput.value, valueInput.value));
-        redrawSkillsContainer();
+        let skill = new Skill(nameInput.value, valueInput.value);
+        skillsList.push(skill);
+        skillView.redrawSkillsContainerAfterAdd(skill);
     }
     nameInput.value = "";
     valueInput.value = "";
@@ -59,24 +85,16 @@ function deleteSkill(skill) {
         return;
     }
     skillsList.splice(index, 1);
-    redrawSkillsContainer();
+    skillView.redrawSkillsContainerAfterDelete(skill);
 }
 
-function redrawSkillsContainer() {
-    skillsContainer.innerHTML = '<h2>Coding Skills</h2>';
-    for (let i = 0; i < skillsList.length; i++) {
-        const skill = document.createElement("section");
-        skill.classList.add("card_additional-info_coding-skills_programming-language-"+skillsList[i].name);
-        skill.innerHTML =
-            `<h3>${skillsList[i].name}</h3>
-                <progress class="card_additional-info_coding-skills_programming-language-${skillsList[i].name}_progress" 
-                    max="100" value=${skillsList[i].ratio}>
-                </progress>
-                <button class="card_additional-info_coding-skills_programming-language-${skillsList[i].name}_minus-button">-</button>`;
-        skillsContainer.appendChild(skill);
-        let deleteButton = document.querySelector('.card_additional-info_coding-skills_programming-language-'+skillsList[i].name+'_minus-button');
-        deleteButton.addEventListener("click", () => deleteSkill(skillsList[i]));
-    }
-}
+const skillsContainer = document.querySelector('.card_additional-info_coding-skills_skills-info');
+let skillsList = [
+    new Skill('Java', 30),
+    new Skill('C', 20),
+    new Skill('Python', 10),
+    new Skill('JavaScript', 5),
+];
+const skillView = new SkillView();
 
 init();
